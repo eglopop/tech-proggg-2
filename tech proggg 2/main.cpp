@@ -12,42 +12,43 @@ void searchByBirthMonth(const std::vector<Note*>& notes, int searchMonth) {
     for (const auto& note : notes) {
         const BirthdayNote* bNote = dynamic_cast<const BirthdayNote*>(note);
         if (bNote && bNote->getBirthday()[1] == searchMonth) {
-            std::cout << "Found: " << *bNote << std::endl;
+            std::cout << "нашелся: " << *bNote << std::endl ;
             found = true;
         }
     }
 
     if (!found) {
-        std::cout << "No birthdays found for the specified month." << std::endl;
+        std::cout << "дни рождения за указанный месяц не найдены." << std::endl;
     }
 }
 
 // Функция для вывода меню пользователя
 void printMenu() {
     std::cout << "\nMenu:\n"
-        << "1. Add new person\n"
-        << "2. Edit a person's information\n"
-        << "3. Delete a person\n"
-        << "4. Display sorted list of people\n"
-        << "5. Search by birth month\n"
-        << "6. task2\n"
-        << "7. Exit\n";
+        << "1. добавить человека\n"
+        << "2. редактировать информацию \n"
+        << "3. удалить человека\n"
+        << "4. показать отсортированный список\n"
+        << "5. искать людей по месяцу рождения\n"
+        << "6. 2 задание\n"
+        << "7. выход\n";
 }
 
 int main() {
+    system("chcp 1251");
     std::vector<Note*> notes;
     const std::string inputFilePath = "input.txt";
 
     char choice;
     do {
         printMenu();
-        std::cout << "Enter your choice: ";
+        std::cout << "введите команду: ";
         std::cin >> choice;
 
         switch (choice) {
         case '1': // Add new person
         {
-            std::cout << "Enter data for a new person:" << std::endl;
+            std::cout << "Введите данные для нового человека:" << std::endl;
             BirthdayNote* note = new BirthdayNote;
             std::cin >> *note;
 
@@ -58,22 +59,22 @@ int main() {
         case '2': // Edit a person's information
         {
             int index;
-            std::cout << "Enter the index of the person you want to edit: ";
+            std::cout << "Введите индекс человека, которого вы хотите отредактировать: ";
             std::cin >> index;
 
             if (index >= 0 && index < notes.size()) {
-                std::cout << "Enter new data for the person:" << std::endl;
+                std::cout << "Введите новые данные для этого человека:" << std::endl;
                 std::cin >> *notes[index];
             }
             else {
-                std::cout << "Invalid index." << std::endl;
+                std::cout << "Недопустимый индекс." << std::endl;
             }
             break;
         }
         case '3': // Delete a person
         {
             int index;
-            std::cout << "Enter the index of the person you want to delete: ";
+            std::cout << "Введите индекс человека, которого вы хотите удалить: ";
             std::cin >> index;
 
             if (index >= 0 && index < notes.size()) {
@@ -81,7 +82,7 @@ int main() {
                 notes.erase(notes.begin() + index);
             }
             else {
-                std::cout << "Invalid index." << std::endl;
+                std::cout << "Недопустимый индекс." << std::endl;
             }
             break;
         }
@@ -92,7 +93,7 @@ int main() {
                 });
 
             // Вывод отсортированных записей
-            std::cout << "\nSorted List of People:" << std::endl;
+            std::cout << "\nОтсортированный список людей:" << std::endl;
             for (const auto& note : notes) {
                 std::cout << *note << std::endl;
             }
@@ -100,7 +101,7 @@ int main() {
         case '5': // Search by birth month
         {
             int searchMonth;
-            std::cout << "Enter the birth month to search: ";
+            std::cout << "Введите месяц рождения для поиска: ";
             std::cin >> searchMonth;
 
             searchByBirthMonth(notes, searchMonth);
@@ -112,7 +113,7 @@ int main() {
         case '7':
             break;
         default:
-            std::cout << "Invalid choice. Please enter a number between 1 and 6." << std::endl;
+            std::cout << "Неверный выбор. Пожалуйста, введите число от 1 до 6." << std::endl;
         }
 
     } while (choice != '6');

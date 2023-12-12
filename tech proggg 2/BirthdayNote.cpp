@@ -22,7 +22,7 @@ void BirthdayNote::setBirthday(int day, int month, int year) {
 }
 
 std::ostream& operator<<(std::ostream& os, const BirthdayNote& note) {
-    os << static_cast<const Note&>(note) << "\nBirthday: " << note.getBirthday()[0]
+    os << static_cast<const Note&>(note) << "\nдень рождени€: " << note.getBirthday()[0]
         << "." << note.getBirthday()[1] << "." << note.getBirthday()[2];
     return os;
 }
@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& os, const BirthdayNote& note) {
 std::istream& operator>>(std::istream& is, BirthdayNote& note) {
     is >> static_cast<Note&>(note);
 
-    std::cout << "Enter Birthday (day month year): ";
+    std::cout << "¬ведите день рождени€ (день мес€ца, год): ";
     is >> note.birthday[0] >> note.birthday[1] >> note.birthday[2];
 
     return is;

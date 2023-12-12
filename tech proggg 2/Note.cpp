@@ -66,22 +66,22 @@ Note& Note::operator=(const Note& other) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Note& note) {
-    os << "Last Name: " << note.lastName << "\nFirst Name: " << note.firstName
-        << "\nPhone Number: " << note.phoneNumber << "\n";
+    os << "фамилия: " << note.lastName << "\nимя: " << note.firstName
+        << "\nномер телефона: " << note.phoneNumber << "\n";
     return os;
 }
 
 std::istream& operator>>(std::istream& is, Note& note) {
     char last[100], first[100], phone[100];
-    std::cout << "Enter Last Name: ";
+    std::cout << "введите фамилию: ";
     is >> last;
     note.setLastName(last);
 
-    std::cout << "Enter First Name: ";
+    std::cout << "введите имя: ";
     is >> first;
     note.setFirstName(first);
 
-    std::cout << "Enter Phone Number: ";
+    std::cout << "введите номер телефона: ";
     is >> phone;
     note.setPhoneNumber(phone);
 
