@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Note.h"
 #include <cstring>
 
@@ -66,7 +67,7 @@ Note& Note::operator=(const Note& other) {
 
 std::ostream& operator<<(std::ostream& os, const Note& note) {
     os << "Last Name: " << note.lastName << "\nFirst Name: " << note.firstName
-        << "\nPhone Number: " << note.phoneNumber;
+        << "\nPhone Number: " << note.phoneNumber << "\n";
     return os;
 }
 
@@ -85,4 +86,7 @@ std::istream& operator>>(std::istream& is, Note& note) {
     note.setPhoneNumber(phone);
 
     return is;
+}
+const int* Note::getBirthday() const {
+    return nullptr; // Note не содержит информации о дате рождения
 }

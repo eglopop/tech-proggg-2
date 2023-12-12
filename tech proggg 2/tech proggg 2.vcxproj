@@ -130,10 +130,12 @@
     <ClCompile Include="BirthdayNote.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Note.cpp" />
+    <ClCompile Include="replace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BirthdayNote.h" />
     <ClInclude Include="Note.h" />
+    <ClInclude Include="replace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
